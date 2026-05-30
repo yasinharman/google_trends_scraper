@@ -1,3 +1,12 @@
 CLAUDE.md
 google_trends_scraper_plan.md
+google_trends_veri_aciklamasi.md
 keywords.txt
+
+# Hassas: Google hesap oturum cookie'leri
+cookies.json
+
+# Çıktılar ve Python cache
+output/
+__pycache__/
+*.pyc

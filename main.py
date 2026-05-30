@@ -4,6 +4,11 @@
 import os
 import sys
 
+# Windows konsolunda UTF-8 çıktısını zorla (cp1252 unicode karakterlerde patlıyor)
+sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
+# Encoding ayarı tamamlandı
+
 import config
 from modules import trends_client, exporter
 

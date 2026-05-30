@@ -60,17 +60,21 @@ def _clean_json(text):
 
 def get_explore_payload(session, keyword):
     """Explore endpoint'i çağırır, related queries widget'ının token + request'ini döner."""
+    # Keyword'ü lowercase gönder — Google case-sensitive davranıyor, "Camera Bags" boş dönüyor "camera bags" doluyor
+    keyword_normalized = keyword.lower()
+    # Keyword normalize edildi
+
     # Explore request gövdesini hazırla
     req_body = {
         "comparisonItem": [
-            {"keyword": keyword, "geo": config.GEO, "time": config.TIMEFRAME}
+            {"keyword": keyword_normalized, "geo": config.GEO, "time": config.TIMEFRAME}
         ],
         "category": 0,
         "property": "",
     }
     params = {
-        "hl": "en-US",
-        "tz": "0",
+        "hl": config.HL,
+        "tz": config.TZ,
         "req": json.dumps(req_body, separators=(",", ":")),
     }
     # Explore parametreleri hazır
@@ -99,8 +103,8 @@ def get_related_searches(session, token, req):
     """Token ile related searches endpoint'i çağırır; (top, rising) listelerini döner."""
     # Request parametrelerini hazırla
     params = {
-        "hl": "en-US",
-        "tz": "0",
+        "hl": config.HL,
+        "tz": config.TZ,
         "req": json.dumps(req, separators=(",", ":")),
         "token": token,
     }

@@ -38,6 +38,12 @@ GEO = ""              # Boş string = tüm dünya. Örn: "US", "TR", "GB"
 TIMEFRAME = "today 1-m"  # Son 30 gün. Diğer: "today 7-d", "today 3-m", "today 12-m"
 # Coğrafya/zaman ayarları tanımlandı
 
+# Locale ve timezone — browser ne gönderiyorsa ona benzet
+# hl=en-US ile bazı keyword'lerde Google boş veri döndürüyor; tr-TR ile dönüyor
+HL = "tr-TR"
+TZ = "-180"   # Türkiye (UTC+3), Google JS konvansiyonu: dakika cinsinden ters işaretli
+# Locale/timezone ayarları tanımlandı
+
 # Dosya yolları
 COOKIE_FILE = "cookies.json"
 OUTPUT_DIR = "./output/"
